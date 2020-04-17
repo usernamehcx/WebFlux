@@ -29,7 +29,7 @@ public class StockService {
 
 
     public Flux<NewStock> streamStock() {
-        System.setProperty("selenuim_config", "/Users/njuics/workspace/scrapyboot/config.ini");
+        System.setProperty("selenuim_config", "/Users/njuics/workspace/Spring-WebFlux/spring-webflux-streaming/config.ini");
         Flux<Long> interval = Flux.interval(Duration.ofSeconds(5));
         FluxProcessor events = DirectProcessor.create().serialize();
         FluxSink sink = events.sink();
