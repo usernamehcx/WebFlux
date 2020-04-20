@@ -29,6 +29,8 @@ public class RequestHandler {
     public Mono<ServerResponse> streamStock(ServerRequest request){
         return ServerResponse.ok()
                 .contentType(MediaType.TEXT_EVENT_STREAM)
+                .header("Access-Control-Allow-Origin", "http://localhost:3000")
+                .header("Access-Control-Allow-Credentials", "true")
                 .body(stockService.streamStock(), NewStock.class);
     }
 

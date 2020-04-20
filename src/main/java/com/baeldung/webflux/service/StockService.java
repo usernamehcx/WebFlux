@@ -66,7 +66,7 @@ public class StockService {
                         return 0;
                     }
                 }))
-                .setDownloader(new SeleniumDownloader("/Users/njuics/Downloads/chromedriver")).thread(1).start();
+                .setDownloader(new SeleniumDownloader("/Users/njuics/Downloads/chromedriver")).thread(5).start();
 
         return events;
     }

@@ -1,14 +1,17 @@
 package com.baeldung.webflux.model;
 
+import com.google.gson.internal.$Gson$Preconditions;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+//import org.apache.xpath.operations.String;
 import us.codecraft.webmagic.model.annotation.ExtractBy;
 import us.codecraft.webmagic.model.annotation.HelpUrl;
 import us.codecraft.webmagic.model.annotation.TargetUrl;
 
-import java.time.LocalDateTime;
-
+@AllArgsConstructor
+@NoArgsConstructor
+@Data
 @HelpUrl("http://so.eastmoney.com/web/s?keyword=%E9%9D%92%E5%B2%9B%E5%95%A4%E9%85%92")
 @TargetUrl("http://quote.eastmoney.com/sh600600.html")
 public class NewStock {
@@ -61,4 +64,10 @@ public class NewStock {
 //
 //    @ExtractBy(value = "/html/body/div[11]/div[3]/table/tbody/tr[2]/td[14]/text()")
 //    private String circulationMarketCap;
+
+    private long timestamp;
+//    public String toString(){
+//
+//        return "{" + "stockName: " + stockName + ", stockCode: " + stockCode + ", price: " + price + "}";
+//    }
 }

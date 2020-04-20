@@ -1,5 +1,6 @@
 package com.baeldung.webflux.config;
 
+import com.baeldung.webflux.model.NewStock;
 import lombok.SneakyThrows;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,8 +29,10 @@ public class FluxPageModelPipeline<T> implements PageModelPipeline<T> {
             System.exit(-1);
         }
         if (o != null) {
-            System.out.println(o.toString());
-            handler.next(ToStringBuilder.reflectionToString(o));
+//            System.out.println(o.toString());
+            NewStock newStock = (NewStock)o;
+            newStock.setTimestamp(System.currentTimeMillis());
+            handler.next(newStock);
         }
     }
 }
