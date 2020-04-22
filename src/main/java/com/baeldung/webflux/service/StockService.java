@@ -3,6 +3,7 @@ package com.baeldung.webflux.service;
 import com.baeldung.webflux.config.FluxPageModelPipeline;
 import com.baeldung.webflux.config.SpiderFlux;
 import com.baeldung.webflux.model.NewStock;
+import com.baeldung.webflux.util.NewSeleniumDownloader;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -66,7 +67,7 @@ public class StockService {
                         return 0;
                     }
                 }))
-                .setDownloader(new SeleniumDownloader("/Users/njuics/Downloads/chromedriver")).thread(5).start();
+                .setDownloader(new NewSeleniumDownloader("/Users/njuics/Downloads/chromedriver")).thread(5).start();
 
         return events;
     }
