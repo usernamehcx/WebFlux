@@ -70,4 +70,5 @@ public class NewStock {
 //
 //        return "{" + "stockName: " + stockName + ", stockCode: " + stockCode + ", price: " + price + "}";
 //    }
+
 }

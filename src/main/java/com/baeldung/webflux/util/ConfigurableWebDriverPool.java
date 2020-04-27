@@ -9,9 +9,11 @@ import org.openqa.selenium.phantomjs.PhantomJSDriver;
 import org.openqa.selenium.phantomjs.PhantomJSDriverService;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.springframework.core.io.ClassPathResource;
 
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -65,7 +67,7 @@ class ConfigurableWebDriverPool {
         if (System.getProperty("selenuim_config")!=null){
             configFile = System.getProperty("selenuim_config");
         }
-        sConfig.load(new FileReader(configFile));
+        sConfig.load(new InputStreamReader(new ClassPathResource(configFile).getInputStream()));
 
         // Prepare capabilities
         sCaps = new DesiredCapabilities();

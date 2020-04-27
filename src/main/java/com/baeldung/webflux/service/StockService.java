@@ -24,13 +24,14 @@ import us.codecraft.webmagic.scheduler.component.DuplicateRemover;
 import java.math.BigDecimal;
 import java.time.Duration;
 import java.util.Arrays;
+import java.util.Objects;
 
 @Service
 public class StockService {
 
 
     public Flux<NewStock> streamStock() {
-        System.setProperty("selenuim_config", "/Users/njuics/workspace/Spring-WebFlux/spring-webflux-streaming/config.ini");
+        System.setProperty("selenuim_config", "config.ini");
         Flux<Long> interval = Flux.interval(Duration.ofSeconds(5));
         FluxProcessor events = DirectProcessor.create().serialize();
         FluxSink sink = events.sink();
@@ -67,7 +68,7 @@ public class StockService {
                         return 0;
                     }
                 }))
-                .setDownloader(new NewSeleniumDownloader("/Users/njuics/Downloads/chromedriver")).thread(5).start();
+                .setDownloader(new NewSeleniumDownloader("/Users/njuics/Downloads/chromedriver")).thread(1).start();
 
         return events;
     }
